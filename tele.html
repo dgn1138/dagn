@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TeleBirr Payment - Fruitables</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+  <style>
+    body {
+      background: linear-gradient(to right, #f9f9f9, #eef2f3);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .telebirr-card {
+      max-width: 600px;
+      margin: 60px auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      animation: fadeInUp 0.7s ease;
+    }
+
+    .telebirr-card h3 {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .telebirr-card .form-control {
+      border-radius: 8px;
+    }
+
+    .telebirr-card .btn {
+      border-radius: 50px;
+      font-weight: bold;
+    }
+
+    .telebirr-card .btn-pay {
+      background-color: #f5a623;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .telebirr-card .btn-pay:hover {
+      background-color: #d98d17;
+    }
+
+    .telebirr-card .input-icon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: #999;
+    }
+
+    .telebirr-card .form-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .telebirr-card .form-group input {
+      padding-left: 35px;
+    }
+
+    .summary-box {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+
+    .summary-box h5 {
+      font-size: 1.1rem;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Page Header -->
+<div class="container-fluid bg-primary py-5 text-white text-center">
+  <h1 class="display-4">TeleBirr Payment</h1>
+  <p class="lead">Complete your secure transaction</p>
+</div>
+
+<!-- Payment Card -->
+<div class="telebirr-card">
+  <div class="text-center mb-4">
+    <img src="img/tele.jpeg" alt="TeleBirr Logo" style="width: 140px;">
+    <h3 class="mt-3">Pay with TeleBirr</h3>
+  </div>
+
+  <form id="fancyTelebirrForm">
+    <div class="form-group">
+      <i class="fas fa-phone input-icon"></i>
+      <input type="tel" class="form-control" id="phone" placeholder="Phone Number (e.g. 0912xxxxxx)" required>
+    </div>
+
+    <div class="form-group">
+      <i class="fas fa-money-bill input-icon"></i>
+      <input type="number" class="form-control" id="amount" placeholder="Amount in BIRR" required>
+    </div>
+
+    <div class="form-group">
+      <i class="fas fa-receipt input-icon"></i>
+      <input type="text" class="form-control" id="orderId" placeholder="Order Reference (e.g. ORDER12345)" required>
+    </div>
+
+    <button type="submit" class="btn btn-pay w-100 py-2">Confirm Payment</button>
+  </form>
+
+  <div class="summary-box mt-4">
+    <h5><i class="fas fa-info-circle text-primary me-2"></i>Payment Summary</h5>
+    <p><strong>Service:</strong> Fruitables Online Store</p>
+    <p><strong>Payment Type:</strong> TeleBirr</p>
+    <p><strong>Security:</strong> Encrypted with 256-bit SSL</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <p class="mb-0">© 2025 Fruitables. All rights reserved.</p>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('fancyTelebirrForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const phone = document.getElementById('phone').value;
+    const amount = document.getElementById('amount').value;
+    const orderId = document.getElementById('orderId').value;
+    alert(`✅ Payment Request Sent:\n\nPhone: ${phone}\nAmount: ${amount} BIRR\nOrder ID: ${orderId}`);
+  });
+</script>
+</body>
+</html>
